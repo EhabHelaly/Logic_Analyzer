@@ -1,0 +1,30 @@
+#ifndef PERIPHERAL_H_INCLUDED
+#define PERIPHERAL_H_INCLUDED
+
+/** HW Peripherals **/
+
+enum{
+    /** GPIO **/
+	PERIPHERAL_GPIO_A,
+	PERIPHERAL_GPIO_B,
+	PERIPHERAL_GPIO_C,
+	PERIPHERAL_GPIO_D,
+    /** Timer **/
+	PERIPHERAL_TIMER_0,
+	PERIPHERAL_TIMER_1,
+	PERIPHERAL_TIMER_2,
+    /** UART **/
+	PERIPHERAL_UART_0,
+    /** I2C **/
+	PERIPHERAL_I2C_0,
+    /** SPI **/
+	PERIPHERAL_SPI_0,
+    /** External Interrupt **/
+	PERIPHERAL_INT_0,
+	PERIPHERAL_INT_1,
+	PERIPHERAL_INT_2,
+    /** ADC **/
+	PERIPHERAL_ADC_0,
+};
+
+#endif /* PERIPHERAL_H_INCLUDED */

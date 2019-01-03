@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1546370471 source:e:\programming\projects\embedded\mcal_atmega128\source\adc.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"adc.h"
+
+1541803700 e:\programming\projects\embedded\mcal_atmega128\inc\adc.h
+	"std_bit.h"
+	"peripheral.h"
+
+1542132107 e:\programming\projects\embedded\mcal_atmega128\inc\std_bit.h
+
+1542057100 e:\programming\projects\embedded\mcal_atmega128\inc\peripheral.h
+
+1542056920 source:e:\programming\projects\embedded\mcal_atmega128\source\gpio.c
+	"gpio.h"
+
+1546370350 e:\programming\projects\embedded\mcal_atmega128\inc\gpio.h
+	"std_bit.h"
+	"peripheral.h"
+	<avr/io.h>
+
+1542603656 source:e:\programming\projects\embedded\mcal_atmega128\source\timer.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"timer.h"
+
+1546370226 e:\programming\projects\embedded\mcal_atmega128\inc\timer.h
+	"std_bit.h"
+	"peripheral.h"
+	<util/delay.h>
+
+1546370946 source:e:\programming\projects\embedded\mcal_atmega128\source\uart.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	"uart.h"
+
+1546370173 e:\programming\projects\embedded\mcal_atmega128\inc\uart.h
+	"std_bit.h"
+	"peripheral.h"
+
