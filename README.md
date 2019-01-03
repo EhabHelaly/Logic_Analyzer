@@ -24,7 +24,7 @@ Features
 	- SPI
 	- NEC (IR protocol)
 * Supports digitalization of analog signal using schmitt trigger
-* Supports multiple hardware clock frequency configurations (.hex code is independant of clock frequency)
+* Supports multiple hardware clock frequency configurations (.hex code is independent of clock frequency)
 * Configurable internal pull-up resistances when capturing signals 
 * 2 different color themes for better display
 
