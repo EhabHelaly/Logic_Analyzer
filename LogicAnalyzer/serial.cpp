@@ -1,5 +1,5 @@
 #include <windows.h>
-#include <stdio.h>
+#include <string>
 
 /* Serial Port */
 static HANDLE port;
@@ -7,10 +7,9 @@ static DCB  serial;
 
 bool serialOpen(int portNumber, int baudRate)
 {
-    WCHAR portName[10];
+    std::string portName = std::string("COM")+std::to_string(portNumber);
 
-    swprintf(portName,L"COM%d",portNumber);
-    port=CreateFile(portName,GENERIC_READ|GENERIC_WRITE,FILE_SHARE_VALID_FLAGS,NULL,OPEN_EXISTING,0,NULL);
+    port=CreateFileA(portName.c_str(),GENERIC_READ|GENERIC_WRITE,FILE_SHARE_VALID_FLAGS,NULL,OPEN_EXISTING,0,NULL);
     if (!GetCommState(port,&serial))
     {
         return false;
@@ -21,11 +20,8 @@ bool serialOpen(int portNumber, int baudRate)
     serial.ByteSize=8;
     serial.DCBlength = sizeof(serial);
     serial.fDtrControl=DTR_CONTROL_DISABLE;
-    if (!SetCommState(port,&serial))
-    {
-        return false;
-    }
-    return true;
+
+    return SetCommState(port,&serial);
 }
 bool serialOpen(int portNumber)
 {

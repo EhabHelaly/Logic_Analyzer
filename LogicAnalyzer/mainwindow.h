@@ -73,6 +73,7 @@ private:
     QVector<AnalogSignal>  signals_a;
 
     QTimer* plotting_timer = 0;
+    QTimer*   serial_timer = 0;
     uint8_t           mode = LA_MODE_DIGITAL;
     uint8_t       byte_old = 0xFF;
     uint8_t*        buffer = 0;

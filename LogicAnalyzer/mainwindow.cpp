@@ -44,14 +44,14 @@ MainWindow::MainWindow(QWidget *parent) :
     plotInit();
     loadSettings();
 
-    auto serial_timer = new QTimer(parent);
-    serial_timer->setInterval(1000);
+    serial_timer = new QTimer(parent);
+    serial_timer->setInterval(1000);    /* 1 second */
     connect(serial_timer, &QTimer::timeout, [this]{this->checkHardware();});
     serial_timer->start();
 
     /* Program main loop */
     plotting_timer = new QTimer(parent);
-    plotting_timer->setInterval(30);
+    plotting_timer->setInterval(10);    /* 10 milli seconds */
     connect(plotting_timer, &QTimer::timeout, [this]{this->plotRun();});
 }
 
@@ -691,12 +691,15 @@ void MainWindow::on_pushB_capture_pressed()
                 /* Digital Representation of Analog Signal using Schmitt Trigger */
                 signals_a[0].binary.data = ui->plot->graph(LA_GRAPH_ANALOG_SCHMITT)->data();
                 signals_a[0].binary.edgeTime = getSamplingTime();
-                /* Schmitt Trigger comparator Low */
-                ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTLOW)->addData(0                       ,adc_scale*ui->spin_schmittLow->value());
-                ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTLOW)->addData(ui->spin_msec->maximum(),adc_scale*ui->spin_schmittLow->value());
-                /* Schmitt Trigger comparator High */
-                ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTHIGH)->addData(0                       ,adc_scale*ui->spin_schmittHigh->value());
-                ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTHIGH)->addData(ui->spin_msec->maximum(),adc_scale*ui->spin_schmittHigh->value());
+                if(ui->checkB_schmitt->isChecked())
+                {
+                    /* Schmitt Trigger comparator Low */
+                    ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTLOW)->addData(0                       ,adc_scale*ui->spin_schmittLow->value());
+                    ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTLOW)->addData(ui->spin_msec->maximum(),adc_scale*ui->spin_schmittLow->value());
+                    /* Schmitt Trigger comparator High */
+                    ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTHIGH)->addData(0                       ,adc_scale*ui->spin_schmittHigh->value());
+                    ui->plot->graph(LA_GRAPH_ANALOG_SCHMITTHIGH)->addData(ui->spin_msec->maximum(),adc_scale*ui->spin_schmittHigh->value());
+                }
                 /* show y-axis data labels by setting its color to white */
                 ui->plot->yAxis->setTickLabelColor(color_plot[1-theme_settings]);
                 /* Adjust Y axis to suit current mode */
