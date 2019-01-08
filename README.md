@@ -1,5 +1,7 @@
 # Logic_Analyzer
-Turns your cheap AVR into powerfull logic analyzer up to 400k sample rate. it's a very handy tool for debugging communication protocols, GPIOs, digital and analog sensors and modules
+Turns your cheap AVR into powerful logic analyzer up to 400k sample rate. it's a very handy tool for debugging communication protocols, GPIOs, digital and analog sensors and modules
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/H4AfqcDREzQ/0.jpg)](https://www.youtube.com/watch?v=H4AfqcDREzQ)
 
 ## Hardware Requirments
 * Atmega16/32/64/128
