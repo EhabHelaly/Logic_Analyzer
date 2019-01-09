@@ -28,7 +28,7 @@
 #define LA_REG_UCSRA	UCSRA 	/* UART control/status register */
 #define LA_BIT_UDRE		UDRE 	/* UART data register Empty flag */
 /* GPIO Peripheral */
-#define LA_REG_PIN     	PINA 	/* Timer flag register */
+#define LA_REG_PIN     	PINA 	/* GPIO input register */
 /* Timer Peripheral */
 #define LA_REG_TIFR     TIFR 	/* Timer flag register */
 #define LA_BIT_OCF		OCF0 	/* Timer Output Compare Match flag */
