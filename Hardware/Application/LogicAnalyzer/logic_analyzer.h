@@ -7,8 +7,8 @@
 #define LA_CMD_DIGITAL_X2   0xFE    /*  4 pin digital,    400K sample rate at F_CPU 16M , UART baud rate 2M */
 #define LA_CMD_ANALOG       0xFD    /* 10 bit resolution, 100K sample rate at F_CPU 16M , UART baud rate 2M */
 #define LA_CMD_ANALOG_X2    0xFC    /*  8 bit resolution, 200K sample rate at F_CPU 16M , UART baud rate 2M */
-#define LA_CMD_PULLUP_ON	0xFB	/*  enable Pull-up resistances */
-#define LA_CMD_PULLUP_OFF	0xFA	/* disable Pull-up resistances */
+#define LA_CMD_PULLUP_ON    0xFB	/*  enable Pull-up resistances */
+#define LA_CMD_PULLUP_OFF   0xFA	/* disable Pull-up resistances */
 #define LA_CMD_SYNC_CHECK   0xAA	/* test serial communication */
 #define LA_CMD_OFF          0x00	/* stop serial data stream */
 

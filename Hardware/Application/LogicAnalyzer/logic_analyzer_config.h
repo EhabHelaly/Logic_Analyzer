@@ -22,16 +22,16 @@
 /* ADC Peripheral */
 #define LA_REG_ADC      ADC 	/* ADC data register */
 #define LA_REG_ADCSRA   ADCSRA 	/* ADC control/status register */
-#define LA_BIT_ADSC		ADSC 	/* ADC Start Conversion flag */
+#define LA_BIT_ADSC     ADSC 	/* ADC Start Conversion flag */
 /* UART Peripheral */
 #define LA_REG_UDR      UDR 	/* UART data register */
-#define LA_REG_UCSRA	UCSRA 	/* UART control/status register */
-#define LA_BIT_UDRE		UDRE 	/* UART data register Empty flag */
+#define LA_REG_UCSRA    UCSRA 	/* UART control/status register */
+#define LA_BIT_UDRE     UDRE 	/* UART data register Empty flag */
 /* GPIO Peripheral */
-#define LA_REG_PIN     	PINA 	/* GPIO input register */
+#define LA_REG_PIN      PINA 	/* GPIO input register */
 /* Timer Peripheral */
 #define LA_REG_TIFR     TIFR 	/* Timer flag register */
-#define LA_BIT_OCF		OCF0 	/* Timer Output Compare Match flag */
+#define LA_BIT_OCF      OCF0 	/* Timer Output Compare Match flag */
 
 
 #endif /* LOGIC_ANALYZER_CONFIG_H_INC */

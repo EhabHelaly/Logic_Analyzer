@@ -2,11 +2,11 @@
 #include "logic_analyzer_config.h"
 
 
-static u8 boost_data             = 0;			/* contains combined digital samples used in DIGITAL_X modes */
-static volatile u8 boost_counter = 0;			/* controls when to transmit combined digital samples in DIGITAL_X modes */
-static volatile u8 mode          = LA_CMD_OFF;	/* contains Command received through UART Transceiver */
+static u8 boost_data             = 0;           /* contains combined digital samples used in DIGITAL_X modes */
+static volatile u8 boost_counter = 0;           /* controls when to transmit combined digital samples in DIGITAL_X modes */
+static volatile u8 mode          = LA_CMD_OFF;  /* contains Command received through UART Transceiver */
 
-void receive_command(u8 cmd);					/* UART receive callback (executes received commands) */
+void receive_command(u8 cmd);                   /* UART receive callback (executes received commands) */
 
 int main(void)
 {
@@ -15,17 +15,17 @@ int main(void)
 	Gpio_Init(LA_GPIO, 0xFF, GPIO_CONFIG_INPPUT|GPIO_CONFIG_PULL_UP);   /* Digital Input */
 	Adc_Init(LA_ADC, ADC_VREF_VCC|ADC_MODE_SINGLE);                     /* Analog Input */
 	Adc_SetChannel(LA_ADC, ADC_CHANNEL_0);                              /* Analog Input Channel */
-	Timer_Init(LA_TIMER, TIMER_MODE_CTC, LA_TIMER_TICKS_D);				/* Timer Mode Clear on Compare Match */
+	Timer_Init(LA_TIMER, TIMER_MODE_CTC, LA_TIMER_TICKS_D);             /* Timer Mode Clear on Compare Match */
 	Timer_Stop(LA_TIMER);                                               /* Stop Timer until next data stream */
 	Uart_Init(LA_UART, UART_MAX_BAUDRATE);                              /* UART Transceiver */
 	Uart_CbRecv(LA_UART, receive_command);								/* UART Receiver ISR */
 
 	/*	Note:
 	*	program main loop code is not Abstract and does not use MCAL APIs for time optimization purposes,
-	*	all Registers are hard-coded in this section and are defined as Macros in "logic_analyzer_config.h" , 
+	*	all Registers are hard-coded in this section and are defined as Macros in "logic_analyzer_config.h" ,
 	*	those Macros can be modified in "logic_analyzer_config.h" when changing used peripherals
 	*/
-	
+
 	/* Program Main Loop */
 	while(1)
 	{
@@ -77,8 +77,8 @@ int main(void)
 			}/* end of switch case */
 		}/* end of Timer Compare Match check (if condition) */
 	}/* end of Program Main Loop */
-	
-	
+
+
 	return 0;
 }
 
