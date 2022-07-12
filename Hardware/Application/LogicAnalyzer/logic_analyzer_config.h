@@ -6,6 +6,7 @@
 #include <uart.h>
 #include <gpio.h>
 #include <adc.h>
+#include <avr/interrupt.h>
 
 /* Logic Analyzer Peripheral Configuration */
 #define LA_ADC      PERIPHERAL_ADC_0		/* sed for analog input display */

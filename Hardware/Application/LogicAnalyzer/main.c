@@ -29,8 +29,8 @@ int main(void)
 	/* Program Main Loop */
 	while(1)
 	{
-		if (ALL_SET( LA_REG_TIFR , BM(LA_BIT_OCF) ))	/* check if Timer Compare Match occurred */
-		{
+		while( ALL_CLR( LA_REG_TIFR, BM(LA_BIT_OCF) ) );				/* Wait until Timer Compare Match occurs */
+		cli();															/* Enter Critical Section */
 			SET( LA_REG_TIFR , BM(LA_BIT_OCF) );		/* Clear Timer Compare Match Flag */
 			switch(mode)
 			{
@@ -75,7 +75,8 @@ int main(void)
 					break;
 				}
 			}/* end of switch case */
-		}/* end of Timer Compare Match check (if condition) */
+
+		sei();															/* Exit Critical Section */
 	}/* end of Program Main Loop */
 
 
