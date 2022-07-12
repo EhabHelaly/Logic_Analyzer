@@ -88,6 +88,7 @@ void receive_command(u8 cmd)
 	Timer_Stop(LA_TIMER);   /* Stops the timer if running to parse command */
 	Timer_Reset(LA_TIMER);  /* Reset the timer for next data stream */
 	boost_counter=0;        /* Reset Counter for the next data stream */
+
 	switch(cmd)
 	{
 		case LA_CMD_ANALOG:
@@ -101,7 +102,7 @@ void receive_command(u8 cmd)
 		case LA_CMD_DIGITAL:
 		{
 			mode = cmd;
-			/* Starts timer with 200K Sample Rate*/
+			/* Starts timer with 200K Sample Rate (same as LA_TIMER_TICKS_A_X2) */
 			Timer_SetCmpMatch(LA_TIMER, LA_TIMER_TICKS_D);
 			break;
 		}
@@ -116,18 +117,24 @@ void receive_command(u8 cmd)
 		{
 			/* reply with sync byte to ensure baud rate match */
 			Uart_PutC(LA_UART, LA_CMD_SYNC_CHECK);
+			/* switch mode to off in case a stream was running */
+			mode = LA_CMD_OFF;
 			break;
 		}
 		case LA_CMD_PULLUP_ON:
 		{
 			/* enable Pull-up resistances on digital input */
 			Gpio_Init(LA_GPIO, 0xFF, GPIO_CONFIG_INPPUT|GPIO_CONFIG_PULL_UP);
+			/* switch mode to off in case a stream was running */
+			mode = LA_CMD_OFF;
 			break;
 		}
 		case LA_CMD_PULLUP_OFF:
 		{
 			/* disable Pull-up resistances on digital input */
 			Gpio_Init(LA_GPIO, 0xFF, GPIO_CONFIG_INPPUT|GPIO_CONFIG_NO_PULL);
+			/* switch mode to off in case a stream was running */
+			mode = LA_CMD_OFF;
 			break;
 		}
 		case LA_CMD_OFF:
