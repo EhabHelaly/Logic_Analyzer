@@ -1,0 +1,15 @@
+.vscode/*
+LogicAnalyzer/release/*
+Media/*
+*.depend
+*.eep
+*.elf
+*.fuse
+*.hex
+*.layout
+*.lock
+*.lss
+*.map
+*.o
+*.pro.user*
+*.sig
