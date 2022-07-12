@@ -1,6 +1,7 @@
 .vscode/*
 LogicAnalyzer/release/*
 Media/*
+*.d
 *.depend
 *.eep
 *.elf
