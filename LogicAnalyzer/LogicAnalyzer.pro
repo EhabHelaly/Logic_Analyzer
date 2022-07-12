@@ -21,7 +21,7 @@ SOURCES += 	main.cpp \
     		digitalsignal.cpp \
 			serial.cpp
 
-LIBS += -LD:\Qt\5.5\mingw492_32\lib\libQt5OpenGL.a \
+LIBS += -lQt5OpenGL \
         -lopengl32
 
 HEADERS  += mainwindow.h \
