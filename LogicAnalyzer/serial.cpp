@@ -7,7 +7,7 @@ static DCB  serial;
 
 bool serialOpen(int portNumber, int baudRate)
 {
-    std::string portName = std::string("COM")+std::to_string(portNumber);
+    std::string portName = std::string("\\\\.\\COM")+std::to_string(portNumber);
 
     port=CreateFileA(portName.c_str(),GENERIC_READ|GENERIC_WRITE,FILE_SHARE_VALID_FLAGS,NULL,OPEN_EXISTING,0,NULL);
     if (!GetCommState(port,&serial))
