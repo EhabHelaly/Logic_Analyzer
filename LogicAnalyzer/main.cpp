@@ -3,9 +3,11 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.showMaximized();
+   QApplication a(argc, argv);
+   MainWindow   w;
 
-    return a.exec();
+
+   w.showMaximized();
+
+   return(a.exec() );
 }

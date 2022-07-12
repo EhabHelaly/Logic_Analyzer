@@ -5,8 +5,8 @@ bool serialOpen(int portNumber, int baudRate);
 bool serialOpen(int portNumber);
 bool serialIsOpened(void);
 bool serialSend(unsigned char serialdata);
-bool serialSend(const void* serialdata, int  data_size);
-bool serialReceive(void* serialdata, int &data_size);
+bool serialSend(const void *serialdata, int data_size);
+bool serialReceive(void *serialdata, int &data_size);
 bool serialClear(void);
 void serialClose(void);
 
