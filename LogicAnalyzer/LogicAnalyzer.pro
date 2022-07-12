@@ -9,26 +9,24 @@ QT       += core gui\
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = LogicAnalyzer
-TEMPLATE = app
+TARGET          = LogicAnalyzer
+TEMPLATE        = app
+DEFINES         += QCUSTOMPLOT_USE_OPENGL
+QMAKE_CXXFLAGS  += -Wno-deprecated-copy -Wno-class-memaccess
 
-DEFINES += QCUSTOMPLOT_USE_OPENGL
+SOURCES +=  main.cpp \
+            mainwindow.cpp \
+            qcustomplot.cpp \
+            analogsignal.cpp \
+            digitalsignal.cpp \
+            serial.cpp
 
-QMAKE_CXXFLAGS += -Wno-deprecated-copy -Wno-class-memaccess
+LIBS    +=  -lQt5OpenGL \
+            -lopengl32
 
-SOURCES += 	main.cpp \
-        	mainwindow.cpp \
-    		qcustomplot.cpp \
-    		analogsignal.cpp \
-    		digitalsignal.cpp \
-			serial.cpp
+HEADERS +=  mainwindow.h \
+            qcustomplot.h
 
-LIBS += -lQt5OpenGL \
-        -lopengl32
+FORMS   +=  mainwindow.ui
 
-HEADERS  += mainwindow.h \
-    		qcustomplot.h
-
-FORMS    += mainwindow.ui
-
-RC_FILE = LogicAnalyzer.rc
+RC_FILE =   LogicAnalyzer.rc
