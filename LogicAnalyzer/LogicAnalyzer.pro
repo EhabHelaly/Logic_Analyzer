@@ -14,6 +14,8 @@ TEMPLATE = app
 
 DEFINES += QCUSTOMPLOT_USE_OPENGL
 
+QMAKE_CXXFLAGS += -Wno-deprecated-copy -Wno-class-memaccess
+
 SOURCES += 	main.cpp \
         	mainwindow.cpp \
     		qcustomplot.cpp \
