@@ -20,14 +20,14 @@ Turns your cheap AVR into powerful logic analyzer up to 400k sample rate. it's a
 	- Frequency (min,max,average)
 	- Pulse width (min,max)
 	- Duty cycle
-	- Other parameterts
+	- Other parameters
 * Digital protocol decoding
 	- I2C
 	- SPI
 	- NEC (IR protocol)
 * Supports digitalization of analog signal using schmitt trigger
 * Analyzes different parts of recoreded signal
-* Supports multiple hardware clock frequency configurations (.hex code is independent of clock frequency)
+* Supports multiple hardware clock frequency configurations (.hex file is independent of clock frequency)
 * Configurable internal pull-up resistances when capturing signals 
 * 2 different color themes for better display
 
