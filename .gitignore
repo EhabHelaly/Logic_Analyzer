@@ -1,5 +1,5 @@
 .vscode/*
-LogicAnalyzer/release/*
+LogicAnalyzer/build/*
 Media/*
 *.d
 *.depend
