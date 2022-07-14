@@ -1,5 +1,6 @@
 .vscode/*
 LogicAnalyzer/build/*
+/Hardware/Application/LogicAnalyzer/*/*/*
 Media/*
 *.d
 *.depend
