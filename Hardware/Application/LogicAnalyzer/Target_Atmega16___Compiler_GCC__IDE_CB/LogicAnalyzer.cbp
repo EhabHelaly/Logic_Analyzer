@@ -28,12 +28,15 @@
 			<Add option="-mmcu=atmega16" />
 			<Add option="-Os" />
 			<Add option="-Wall" />
+			<Add option="-fdata-sections" />
+			<Add option="-ffunction-sections" />
 			<Add option="-DF_CPU=16000000UL" />
 			<Add directory="../../../HAL_Drivers/inc" />
 			<Add directory="../../../MCAL_ATmega16/inc" />
 		</Compiler>
 		<Linker>
 			<Add option="-mmcu=atmega16" />
+			<Add option="-Wl,--gc-sections" />
 			<Add option="-Wl,-Map=$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).map,--cref" />
 		</Linker>
 		<ExtraCommands>
