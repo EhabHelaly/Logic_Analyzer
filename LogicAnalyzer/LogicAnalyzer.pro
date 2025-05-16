@@ -4,15 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui\
-            printsupport
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QT              += core gui widgets opengl printsupport
 TARGET          = LogicAnalyzer
 TEMPLATE        = app
 DEFINES         += QCUSTOMPLOT_USE_OPENGL
-QMAKE_CXXFLAGS  += -Wno-deprecated-copy -Wno-class-memaccess
+QMAKE_CXXFLAGS  += -Wno-deprecated-copy -Wno-class-memaccess -pthread
+QMAKE_LFLAGS += -pthread
 
 SOURCES +=  main.cpp \
             mainwindow.cpp \
@@ -21,8 +18,7 @@ SOURCES +=  main.cpp \
             digitalsignal.cpp \
             serial.cpp
 
-LIBS    +=  -lQt5OpenGL \
-            -lopengl32
+LIBS    +=  -lopengl32
 
 HEADERS +=  mainwindow.h \
             qcustomplot.h
